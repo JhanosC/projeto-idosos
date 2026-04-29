@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://carif3wm4f1hn"]
+
+[ext_resource type="Texture2D" uid="uid://c4n12e72vq7rt" path="res://Assets/Armário.png" id="1_8soxg"]
+[ext_resource type="PackedScene" uid="uid://chhe4uwmgc347" path="res://Scenes/draggable_obj.tscn" id="1_nxpkh"]
+[ext_resource type="PackedScene" uid="uid://ddp2ieluyt6yj" path="res://Scenes/drop_area.tscn" id="2_8soxg"]
+
+[node name="LevelTestV2" type="Node2D" unique_id=598712562]
+
+[node name="Armário" type="Sprite2D" parent="." unique_id=1914630246]
+position = Vector2(627, 330)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_8soxg")
+
+[node name="DropArea" type="Node" parent="." unique_id=1345814896]
+
+[node name="DropArea" parent="DropArea" unique_id=1932979440 instance=ExtResource("2_8soxg")]
+position = Vector2(480.99997, 161.285)
+scale = Vector2(2.69, 6.355)
+
+[node name="DropArea2" parent="DropArea" unique_id=1028293610 instance=ExtResource("2_8soxg")]
+position = Vector2(539, 161.285)
+scale = Vector2(2.69, 6.355)
+
+[node name="DropArea3" parent="DropArea" unique_id=2082315876 instance=ExtResource("2_8soxg")]
+position = Vector2(597, 161.285)
+scale = Vector2(2.69, 6.355)
+
+[node name="DropArea4" parent="DropArea" unique_id=879795207 instance=ExtResource("2_8soxg")]
+position = Vector2(655, 161.285)
+scale = Vector2(2.69, 6.355)
+
+[node name="DropArea5" parent="DropArea" unique_id=714438050 instance=ExtResource("2_8soxg")]
+position = Vector2(712.99994, 161.285)
+scale = Vector2(2.69, 6.355)
+
+[node name="DropArea6" parent="DropArea" unique_id=70049494 instance=ExtResource("2_8soxg")]
+position = Vector2(770.99994, 161.285)
+scale = Vector2(2.69, 6.355)
+
+[node name="Objects" type="Node" parent="." unique_id=1544476090]
+
+[node name="DraggableObj" parent="Objects" unique_id=1958207711 instance=ExtResource("1_nxpkh")]
+position = Vector2(390.00003, 536)
+scale = Vector2(0.3, 0.3)
+
+[node name="DraggableObj2" parent="Objects" unique_id=742312324 instance=ExtResource("1_nxpkh")]
+position = Vector2(526, 533)
+scale = Vector2(0.3, 0.3)

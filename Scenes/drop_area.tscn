@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ddp2ieluyt6yj"]
+
+[ext_resource type="Script" uid="uid://d2acc35lfoqx2" path="res://Scripts/drop_area.gd" id="1_ti62f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxpkh"]
+
+[node name="DropArea" type="Area2D" unique_id=1932979440]
+script = ExtResource("1_ti62f")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=231935717]
+shape = SubResource("RectangleShape2D_nxpkh")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="area_shape_exited" from="." to="." method="_on_area_shape_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
