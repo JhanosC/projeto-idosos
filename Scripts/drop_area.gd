@@ -1,8 +1,11 @@
 extends Area2D
 class_name DropArea
 
-var obj_ref : DraggableObj
+@export var collision : CollisionShape2D
+@export var size : DataTypes.Size = 1
+var placed_obj : DraggableObj
 var occupied : bool
+
 
 signal object_placed
 signal object_removed
@@ -15,33 +18,24 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	print("Entrando area")
-	if area is DraggableObj:
-		print("Entrando: ", area)
-		if not occupied:
-			obj_ref  = area
-
-func _on_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	print("Saindo area")
-	if obj_ref and area is DraggableObj:
-		print("Saindo: ", area)
-		obj_ref = null
-
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_released("left_mouse"):
-		if obj_ref:
-			place_obj()
-	if event.is_action_pressed("left_mouse") and occupied:
+		print("Holding: ",MouseHandler.held_obj)
+		if MouseHandler.held_obj and not placed_obj and MouseHandler.held_obj.size <= size:
+			place_obj(MouseHandler.held_obj)
+	if event.is_action_pressed("left_mouse") and placed_obj and placed_obj == MouseHandler.get_top_hovered_obj():
 		remove_obj()
 
-func place_obj():
-	print("Placing: ", obj_ref)
-	occupied = true
-	obj_ref.global_position = position
+func place_obj(obj : DraggableObj):
+	print("Placing: ", obj)
+	placed_obj = obj
+	obj.global_position = position
+	obj.placed.emit(1)
 	object_placed.emit()
 
 func remove_obj():
-	print("Removing: ", obj_ref)
-	occupied = false
+	print("Removing: ", placed_obj)
+	MouseHandler.hold_obj()
+	placed_obj.removed.emit(-1)
+	placed_obj = null
 	object_removed.emit()

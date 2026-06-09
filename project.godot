@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Projeto-Idosos"
-run/main_scene="uid://carif3wm4f1hn"
+run/main_scene="uid://cud67dhcy3a8n"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MouseHandler="*uid://de1h5bg5n5ov7"
 
 [input]
 

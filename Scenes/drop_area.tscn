@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://d2acc35lfoqx2" path="res://Scripts/drop_area.gd" id="1_ti62f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxpkh"]
+size = Vector2(55, 55)
 
-[node name="DropArea" type="Area2D" unique_id=1932979440]
+[node name="DropArea" type="Area2D" unique_id=1932979440 node_paths=PackedStringArray("collision")]
 script = ExtResource("1_ti62f")
+collision = NodePath("CollisionShape2D")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=231935717]

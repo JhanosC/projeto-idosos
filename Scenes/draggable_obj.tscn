@@ -7,7 +7,7 @@
 size = Vector2(136, 356)
 
 [node name="DraggableObj" type="Area2D" unique_id=1958207711]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_gtlew")
 metadata/_edit_group_ = true
 

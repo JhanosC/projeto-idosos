@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cc7uhgu4368s4"]
+
+[ext_resource type="Script" uid="uid://ckbxcpj4aoemb" path="res://Scripts/level.gd" id="1_n8ugx"]
+[ext_resource type="Texture2D" uid="uid://c4n12e72vq7rt" path="res://Assets/Armário.png" id="1_rt30p"]
+[ext_resource type="PackedScene" uid="uid://ddp2ieluyt6yj" path="res://Scenes/drop_area.tscn" id="2_n8ugx"]
+[ext_resource type="PackedScene" uid="uid://chhe4uwmgc347" path="res://Scenes/draggable_obj.tscn" id="3_5twv4"]
+
+[node name="LevelTest3" type="Node2D" unique_id=598712562]
+script = ExtResource("1_n8ugx")
+scene_to_load = "res://Scenes/LevelTestV2.tscn"
+
+[node name="Armário" type="Sprite2D" parent="." unique_id=1914630246]
+position = Vector2(576.5, 361.9912)
+scale = Vector2(0.48199332, 0.44363457)
+texture = ExtResource("1_rt30p")
+metadata/_edit_lock_ = true
+
+[node name="DropArea" type="Node" parent="." unique_id=1345814896]
+
+[node name="DropArea" parent="DropArea" unique_id=1932979440 instance=ExtResource("2_n8ugx")]
+position = Vector2(213, 184)
+
+[node name="Objects" type="Node" parent="." unique_id=1544476090]
+
+[node name="DraggableObj" parent="Objects" unique_id=1958207711 instance=ExtResource("3_5twv4")]
+position = Vector2(276, 418)
+
+[node name="Button" type="Button" parent="." unique_id=1622024587]
+visible = false
+top_level = true
+offset_left = 277.0
+offset_top = 273.0
+offset_right = 808.0
+offset_bottom = 441.0
+mouse_default_cursor_shape = 2
+text = "Vitoria!!!!!!!!!!!!!!!!!!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
